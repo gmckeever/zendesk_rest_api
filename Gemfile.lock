@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    crack (0.4.1)
+      safe_yaml (~> 0.9.0)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    json (1.8.0)
+    multi_json (1.7.7)
+    multi_xml (0.5.4)
+    safe_yaml (0.9.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  crack (~> 0.4.1)
+  httparty (~> 0.11.0)
+  json (~> 1.8.0)
