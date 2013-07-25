@@ -34,5 +34,5 @@ client = ZendeskAPI::Client.new do |config|
       # use the API at https://yoursubdomain.zendesk.com/api/v2
 end
 
-all_tickets = client.tickets.all?
-pp all_tickets
+all_tickets = client.tickets.where(:tags => "PHP").all
+puts all_tickets

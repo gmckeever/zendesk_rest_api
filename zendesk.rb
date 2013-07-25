@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'httparty'
 require 'json'
-require 'crack'
 require 'pp'
 
 class Zendesk
