@@ -34,5 +34,8 @@ client = ZendeskAPI::Client.new do |config|
       # use the API at https://yoursubdomain.zendesk.com/api/v2
 end
 
-all_tickets = client.tickets.where(:tags => "PHP").all
-puts all_tickets
+all_tickets = client.search(:query => "status:pending tags:php")
+all_tickets.each do |t|
+  puts t
+  puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags} #{t.url}"
+end
