@@ -34,8 +34,34 @@ client = ZendeskAPI::Client.new do |config|
       # use the API at https://yoursubdomain.zendesk.com/api/v2
 end
 
-all_tickets = client.search(:query => "status:pending tags:php")
-all_tickets.each do |t|
-  puts t
-  puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags} #{t.url}"
+frequencies = Hash.new(0)
+
+request = client.search(:query => "status:pending")
+
+request.each do |t|
+  #puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags} #{t.url}"
+  #puts "tags: #{t.tags}"
+  t.tags.each { |x| frequencies[x] += 1 }
 end
+
+frequencies = frequencies.sort_by {|a, b| b }
+frequencies.reverse!
+frequencies.each { |tag, frequency| puts tag + " " + frequency.to_s }
+
+# ticket_type = t.class
+#   case ticket_type
+#     when "question"
+#       #puts t
+#       #puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags}"
+#       puts "question"
+#     when "incident"
+#       #puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags}"
+#     when "problem"
+#       #puts "ID: #{t.id} Status: #{t.status} Tags: #{t.tags}"
+#       puts "problem"
+#     else
+
+#   end
+
+#results = client.search(:query => "status:pending")
+#results.each do |t|
