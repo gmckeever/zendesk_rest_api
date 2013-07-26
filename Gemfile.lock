@@ -1,20 +1,33 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    crack (0.4.1)
-      safe_yaml (~> 0.9.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    hashie (2.0.5)
     httparty (0.11.0)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
+    inflection (1.0.0)
     json (1.8.0)
+    mime-types (1.23)
     multi_json (1.7.7)
     multi_xml (0.5.4)
-    safe_yaml (0.9.4)
+    multipart-post (1.2.0)
+    zendesk_api (0.1.11)
+      faraday (>= 0.8.0)
+      faraday_middleware (>= 0.8.7)
+      hashie
+      inflection
+      json
+      mime-types
+      multipart-post
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  crack (~> 0.4.1)
   httparty (~> 0.11.0)
   json (~> 1.8.0)
+  zendesk_api (~> 0.1.9)
